@@ -18,17 +18,20 @@ myLoadAndCleanData <- function() {
                               colClasses = c("character", "character", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric"),
                               na.strings = "?")
   
-  ## Converting dates and times
-  cat("Converting dates and times...\n")
-  householdData$Date <- as.Date(householdData$Date, "%d/%m/%Y")
-  
-  ## Clean up NAs
-  householdData <- householdData[!is.na(householdData$Voltage),]
-  
   ## Get only the requested records
   cat("Keeping only required rows...\n")
-  plottedData <- householdData[householdData$Date == "2007-02-01" | 
-                                 householdData$Date == "2007-02-02",]
+  plottedData <- householdData[householdData$Date == "1/2/2007" | 
+                                 householdData$Date == "2/2/2007",]
   rm(householdData)
+  
+  ## Clean up NAs
+  cat("Cleaning NAs...\n")
+  plottedData <- plottedData[!is.na(plottedData$Voltage),]
+  
+  ## Converting dates and times
+  cat("Converting dates and times...\n")
+  plottedData$DateTime <- strptime(paste(plottedData$Date, plottedData$Time), 
+                                   "%d/%m/%Y %H:%M:%S")
+  
   return(plottedData)
 }
