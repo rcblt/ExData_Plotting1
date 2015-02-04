@@ -28,4 +28,3 @@ rm(myLoadAndCleanData, plottedData)
 
 ## Done
 cat("Done.\n")
-
