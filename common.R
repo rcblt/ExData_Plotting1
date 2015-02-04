@@ -12,17 +12,14 @@ myLoadAndCleanData <- function() {
   
   ## Load dataset in memory
   cat("Loading source dataset...\n")
-  householdData <- read.table("household_power_consumption.txt", 
+  plottedData <- read.table("household_power_consumption.txt", 
                               sep = ";",
-                              header = TRUE,
+                              header = FALSE,
                               colClasses = c("character", "character", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric"),
-                              na.strings = "?")
-  
-  ## Get only the requested records
-  cat("Keeping only required rows...\n")
-  plottedData <- householdData[householdData$Date == "1/2/2007" | 
-                                 householdData$Date == "2/2/2007",]
-  rm(householdData)
+                              col.names = c("Date", "Time", "Global_active_power", "Global_reactive_power", "Voltage", "Global_intensity", "Sub_metering_1", "Sub_metering_2", "Sub_metering_3"),
+                              na.strings = "?",
+                              skip = 66637,
+                              nrows = 2880)
   
   ## Clean up NAs
   cat("Cleaning NAs...\n")
