@@ -17,16 +17,17 @@ plottedData <- myLoadAndCleanData()
 ## Generate plot
 cat("Generating PNG image file plot3.png ...\n")
 png("plot3.png")
+par(bg = NA)
 plot(plottedData$DateTime, 
      plottedData$Sub_metering_1, 
      type = "l",
      xlab = "",
      ylab = "Energy sub metering")
-lines(householdData$DateTime, 
-      householdData$Sub_metering_2, 
+lines(plottedData$DateTime, 
+      plottedData$Sub_metering_2, 
       col = "red")
-lines(householdData$DateTime, 
-      householdData$Sub_metering_3, 
+lines(plottedData$DateTime, 
+      plottedData$Sub_metering_3, 
       col = "blue")
 legend.txt <- c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3")
 legend(x = "topright",
@@ -40,4 +41,3 @@ rm(myLoadAndCleanData, plottedData)
 
 ## Done
 cat("Done.\n")
-

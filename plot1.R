@@ -17,6 +17,7 @@ plottedData <- myLoadAndCleanData()
 ## Generate plot
 cat("Generating PNG image file plot1.png ...\n")
 png("plot1.png")
+par(bg = NA)
 hist(plottedData$Global_active_power, 
      main = "Global Active Power", 
      xlab = "Global Active Power (kilowatts)", 

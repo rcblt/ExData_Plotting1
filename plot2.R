@@ -17,6 +17,7 @@ plottedData <- myLoadAndCleanData()
 ## Generate plot
 cat("Generating PNG image file plot2.png ...\n")
 png("plot2.png")
+par(bg = NA)
 plot(plottedData$DateTime, 
      plottedData$Global_active_power, 
      type = "l",
