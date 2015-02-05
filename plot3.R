@@ -17,19 +17,23 @@ plottedData <- myLoadAndCleanData()
 ## Generate plot
 cat("Generating PNG image file plot3.png ...\n")
 png("plot3.png")
+
+## Transparent background as the images in the forked repo
 par(bg = NA)
 plot(plottedData$DateTime, 
      plottedData$Sub_metering_1, 
      type = "l",
      xlab = "",
      ylab = "Energy sub metering")
+## Add second line
 lines(plottedData$DateTime, 
       plottedData$Sub_metering_2, 
       col = "red")
+## Add third line
 lines(plottedData$DateTime, 
       plottedData$Sub_metering_3, 
       col = "blue")
-legend.txt <- c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3")
+## Add legend
 legend(x = "topright",
        legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"),
        lty = 1,

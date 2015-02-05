@@ -17,6 +17,8 @@ plottedData <- myLoadAndCleanData()
 ## Generate plot
 cat("Generating PNG image file plot1.png ...\n")
 png("plot1.png")
+
+## Transparent background as the images in the forked repo
 par(bg = NA)
 hist(plottedData$Global_active_power, 
      main = "Global Active Power", 

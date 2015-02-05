@@ -17,6 +17,8 @@ plottedData <- myLoadAndCleanData()
 ## Generate plot
 cat("Generating PNG image file plot2.png ...\n")
 png("plot2.png")
+
+## Transparent background as the images in the forked repo
 par(bg = NA)
 plot(plottedData$DateTime, 
      plottedData$Global_active_power, 
