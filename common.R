@@ -11,6 +11,11 @@ myLoadAndCleanData <- function() {
     stop("'Houshold Power Consumption' dataset file not found, aborting...")
   
   ## Load dataset in memory
+  ## Only the required lines are loaded into memory.
+  ## Row numbers for arguments 'skip' and 'nrows' can be derived
+  ## either using simple Unix-Linux commands like grep and less
+  ## (as I did) or by visual inspecion loading the source data file 
+  ## in a text editor
   cat("Loading source dataset...\n")
   plottedData <- read.table("household_power_consumption.txt", 
                               sep = ";",

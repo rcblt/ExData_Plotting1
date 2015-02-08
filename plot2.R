@@ -3,12 +3,8 @@
 ## and generates the plot2
 ##
 
-## Check of source dataset file
-cat("Loading required common code...\n")
-if (!file.exists("common.R"))
-  stop("File common.R not found, aborting...")
-
-## Load common code
+## Load common code to check and load the dataset
+## See script common.R for more descriptions
 source("common.R")
 
 ## Load dataset for plots
